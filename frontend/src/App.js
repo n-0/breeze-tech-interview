@@ -1,26 +1,22 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Chart from './chart';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App = (props) => {
+        console.log(props);
+        if (!props.data) {
+                if (props.loading) {
+                        return <h2>Fetching data...</h2>;
+                } else if (props.error) {
+                        return <h2>Error fetching data</h2>;
+                } else {
+                        props.request();
+                        return <h2>Fetching data...</h2>
+                }
+        }
+        setTimeout(props.request, 10 * 1000);
+        return (
+                <Chart data={props.data} />
+        );
 }
 
 export default App;
