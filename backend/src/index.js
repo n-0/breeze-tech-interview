@@ -12,7 +12,6 @@ const generateRandomValues = ()  => {
 app.use(cors());
 // /api/co2 returns random c02 values for five rooms
 app.get('/api/co2', (req, res) => {
-        console.log('Got request');
         let data = []
         for (let i = 0; i < 6; i++) {
                 let key = 'Room' + i;
