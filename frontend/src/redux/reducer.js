@@ -9,7 +9,6 @@ export const reduce = (state = {}, action) => {
                         return { loading: false, error: false, data: action.data };
                 }
                 case ERROR_GET_DATA: {
-                        console.log('got error');
                         return { loading: false, error: true, data: null };
                 }
                 default: {

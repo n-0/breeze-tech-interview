@@ -2,7 +2,6 @@ import React from 'react';
 import Chart from './chart';
 
 const App = (props) => {
-        console.log(props);
         if (!props.data) {
                 if (props.loading) {
                         return <h2>Fetching data...</h2>;
